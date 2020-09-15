@@ -1,0 +1,27 @@
+.button {
+  background: transparent;
+  border: 1px solid black;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 60px;
+
+  padding: 0;
+  text-align: center;
+  width: 60px;
+}
+
+.dark {
+  background-color: #57aa65;
+}
+
+.light {
+  background-color: #eaece2;
+}
+
+.possible {
+  transition: all 1s;
+  background-blend-mode: darken;
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.5);
+}

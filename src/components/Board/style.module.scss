@@ -1,0 +1,6 @@
+.board {
+  height: 480px;
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(8, 60px [col-start]);
+}
