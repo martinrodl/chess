@@ -24,16 +24,18 @@ export default function King({
   function getPossibleMoves() {
     const resArray = [];
     resArray.push(
-      index + 1,
-      index - 1,
-      index + 8,
-      index - 8,
-      index + 9,
-      index - 9,
-      index + 7,
-      index - 7
+      index + 1 < 64 && board[index + 1].player != player && index + 1,
+      index - 1 > 0 && board[index - 1].player != player && index - 1,
+      index + 8 < 64 && board[index + 8].player != player && index + 8,
+      index - 8 > 0 && board[index - 8].player != player && index - 8,
+      index + 9 < 64 && board[index + 9].player != player && index + 9,
+      index - 9 > 0 && board[index - 9].player != player && index - 9,
+      index + 7 < 64 && board[index + 7].player != player && index + 7,
+      index - 7 > 0 && board[index - 7].player != player && index - 7
     );
-    resArray.filter((n) => n > 0);
+
+    resArray.filter((n) => n != null);
+    console.log(resArray);
     return resArray;
   }
 }
