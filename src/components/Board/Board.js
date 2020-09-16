@@ -89,11 +89,17 @@ function Board(props) {
           piece: 'queen',
           possibleClick: false,
         };
-      } else if (i === 1 || i === 6 || i === 57 || i === 62) {
+      } else if (i === 1 || i === 6) {
         resArray[i] = {
           ...resArray[i],
           piece: 'knight',
           possibleClick: true,
+        };
+      } else if (i === 57 || i === 62) {
+        resArray[i] = {
+          ...resArray[i],
+          piece: 'knight',
+          possibleClick: false,
         };
       } else if (i === 2 || i === 5 || i === 58 || i === 61) {
         resArray[i] = {
@@ -101,11 +107,17 @@ function Board(props) {
           piece: 'bishop',
           possibleClick: false,
         };
-      } else if ((i >= 8 && i < 16) || (i >= 48 && i < 56)) {
+      } else if (i >= 8 && i < 16) {
         resArray[i] = {
           ...resArray[i],
           piece: 'pawn',
           possibleClick: true,
+        };
+      } else if (i >= 48 && i < 56) {
+        resArray[i] = {
+          ...resArray[i],
+          piece: 'pawn',
+          possibleClick: false,
         };
       }
     }
