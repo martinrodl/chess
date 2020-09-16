@@ -1,72 +1,45 @@
-<<<<<<< HEAD
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chess
 
-## Available Scripts
+Challenge to program chess game in short time
 
-In the project directory, you can run:
+![You can try it here](/__screenshots/intro_page.jpg)
 
-### `yarn start`
+## What is SportsZilla
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It's a web application where anybody can find sportfriends and amateur's sport events close to his/her area. User has possibility to create own event in every listed sport. User for the event can set up particular options, time, minimum and maximum persons, place and basic filters. The events can be found without login inside app in order get idea about events going around. Events can be filter by sport and date.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting started
 
-### `yarn test`
+1. Fork the repo and clone your fork to your development environment
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. In a second terminal navigate to the client folder and run `npm install` in your terminal to install dependencies. Then simply run `npm start` to get the react frontend running. You should see the app open up in your browser at `http://localhost:3000` - the default react port.
 
-### `yarn build`
+3. The app is running :-)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# The App itself
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Intro page](/__screenshots/Screenshot_1.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Used Tech Stack
 
-### `yarn eject`
+- JavaScript
+- React
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Observations
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Improvements on the current code base
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Refractor and clean conditions for chess pieces
+- Split code base
+- Implement check, check mate, castling, en passant
+- Unit testing for easy implementation new features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## The Future
 
-## Learn More
+- Implement redux for easy tracking all moves
+- Implement hints and comments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Creator
+1. [Martin Rodl](https://github.com/martinrodl)
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
-# chess
->>>>>>> a5606327f4f786942d08d02ad42733438de3d8e9
