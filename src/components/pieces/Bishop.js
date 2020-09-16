@@ -138,8 +138,6 @@ function Bishop({ player, setPossibleMoves, clicked, index, board }) {
         }
       }
     }
-    console.log(clicked);
-    console.log(resArray);
     return resArray;
   }
 }

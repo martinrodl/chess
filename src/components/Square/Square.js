@@ -84,6 +84,7 @@ export default function Square({
           setPossibleMoves={setPossibleMoves}
           index={index}
           clicked={clicked}
+          board={board}
         />
       );
     else if (piece === 'rook')
