@@ -18,21 +18,120 @@ function Rook({ player, setPossibleMoves, clicked, index, board }) {
 
   function getPossibleMoves() {
     const resArray = [];
-    for (let i = 0; i < 64; i++) {
-      if (i === index) continue;
-      if (index % 8 === i % 8) {
-        resArray.push(i);
+    if (player === 1) {
+      for (let i = index + 1, verical = true, horizontal = true; i < 64; i++) {
+        if (verical && index % 8 === i % 8) {
+          if (board[i].player === 1) {
+            verical = false;
+          } else if (board[i].player === 2) {
+            verical = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (
+          horizontal &&
+          Math.floor(index / 8) * 8 + 8 > i &&
+          Math.floor(index / 8) * 8 <= i
+        ) {
+          if (board[i].player === 1) {
+            horizontal = false;
+          } else if (board[i].player === 2) {
+            horizontal = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
       }
-      if (Math.floor(index / 8) * 8 + 8 > i && Math.floor(index / 8) * 8 <= i) {
-        resArray.push(i);
+      for (let i = index - 1, verical = true, horizontal = true; i >= 0; i--) {
+        if (verical && index % 8 === i % 8) {
+          if (board[i].player === 1) {
+            verical = false;
+          } else if (board[i].player === 2) {
+            verical = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (
+          horizontal &&
+          Math.floor(index / 8) * 8 + 8 > i &&
+          Math.floor(index / 8) * 8 <= i
+        ) {
+          if (board[i].player === 1) {
+            horizontal = false;
+          } else if (board[i].player === 2) {
+            horizontal = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
+    }
+    if (player === 2) {
+      for (let i = index + 1, verical = true, horizontal = true; i < 64; i++) {
+        if (verical && index % 8 === i % 8) {
+          if (board[i].player === 2) {
+            verical = false;
+          } else if (board[i].player === 1) {
+            verical = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (
+          horizontal &&
+          Math.floor(index / 8) * 8 + 8 > i &&
+          Math.floor(index / 8) * 8 <= i
+        ) {
+          if (board[i].player === 2) {
+            horizontal = false;
+          } else if (board[i].player === 1) {
+            horizontal = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
+      for (let i = index - 1, verical = true, horizontal = true; i >= 0; i--) {
+        if (verical && index % 8 === i % 8) {
+          if (board[i].player === 2) {
+            verical = false;
+          } else if (board[i].player === 1) {
+            verical = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (
+          horizontal &&
+          Math.floor(index / 8) * 8 + 8 > i &&
+          Math.floor(index / 8) * 8 <= i
+        ) {
+          if (board[i].player === 2) {
+            horizontal = false;
+          } else if (board[i].player === 1) {
+            horizontal = false;
+            resArray.push(i);
+          } else {
+            resArray.push(i);
+          }
+        }
       }
     }
     return resArray;
   }
-
-  Rook.defaultProps = {
-    board: new Array(64).fill(null),
-  };
 }
+
+Rook.defaultProps = {
+  board: new Array(64).fill(null),
+};
 
 export default Rook;
