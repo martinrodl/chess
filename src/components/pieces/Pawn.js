@@ -19,31 +19,19 @@ function Pawn({ player, setPossibleMoves, clicked, index, board }) {
   function getPossibleMoves() {
     const resArray = [];
     if (player === 1) {
-      if (
-        index > 8 &&
-        index < 16 &&
-        index < 64 &&
-        board[index + 8].piece === null
-      )
-        resArray.push(index + 8);
-      if (
-        index > 8 &&
-        index < 16 &&
-        index < 64 &&
-        board[index + 16].piece === null
-      )
+      if (index < 16 && board[index + 16].piece === null)
         resArray.push(index + 16);
-      if (index > 16 && board[index + 8].piece === null)
-        resArray.push(index + 8);
+      if (board[index + 8].piece === null) resArray.push(index + 8);
+      if (board[index + 7].player === 2) resArray.push(index + 7);
+      if (board[index + 9].player === 2) resArray.push(index + 9);
     }
 
     if (player === 2) {
-      if (index > 48 && index < 56 && board[index - 8].piece === null)
-        resArray.push(index - 8);
-      if (index > 48 && index < 56 && board[index - 16].piece === null)
+      if (index > 48 && board[index - 16].piece === null)
         resArray.push(index - 16);
-      if (index > 16 && board[index - 8].piece === null)
-        resArray.push(index - 8);
+      if (board[index - 8].piece === null) resArray.push(index - 8);
+      if (board[index - 7].player === 1) resArray.push(index - 7);
+      if (board[index - 9].player === 1) resArray.push(index - 9);
     }
 
     return resArray;
