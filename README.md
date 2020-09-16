@@ -2,7 +2,7 @@
 
 Challenge to program chess game in short time
 
-![You can try it here](https://mighty-coast-33222.herokuapp.com/)
+[You can try it here](https://mighty-coast-33222.herokuapp.com/)
 
 ## What is SportsZilla
 
