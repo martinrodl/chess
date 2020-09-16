@@ -18,11 +18,127 @@ function Bishop({ player, setPossibleMoves, clicked, index, board }) {
 
   function getPossibleMoves() {
     const resArray = [];
-    for (let i = 0; i < 64; i++) {
-      if (i === index) continue;
-      if (Math.abs(i - index) % 7 === 0 || Math.abs(i - index) % 9 === 0)
-        resArray.push(i);
+    if (player === 1) {
+      for (let i = index, seven = true, nine = true; i < 64; i++) {
+        if (index === i) continue;
+        if (Math.abs(i - index) % 7 === 0 && seven) {
+          if (Math.abs(i - index) % 7 === 0 && board[i].player === 1) {
+            seven = false;
+          } else if (
+            Math.abs(i - index) % 7 === 0 &&
+            (board[i].player === 2 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            seven = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (Math.abs(i - index) % 9 === 0 && nine) {
+          if (Math.abs(i - index) % 9 === 0 && board[i].player === 1) {
+            nine = false;
+          } else if (
+            (i - index) % 9 === 0 &&
+            (board[i].player === 2 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            nine = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
+      for (let i = index, seven = true, nine = true; i > 0; i--) {
+        if (index === i) continue;
+        if (Math.abs(i - index) % 7 === 0 && seven) {
+          if (Math.abs(i - index) % 7 === 0 && board[i].player === 1) {
+            seven = false;
+          } else if (
+            Math.abs(i - index) % 7 === 0 &&
+            (board[i].player === 2 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            seven = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (Math.abs(i - index) % 9 === 0 && nine) {
+          if (Math.abs(i - index) % 9 === 0 && board[i].player === 1) {
+            nine = false;
+          } else if (
+            (i - index) % 9 === 0 &&
+            (board[i].player === 2 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            nine = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
     }
+    if (player === 2) {
+      for (let i = index, seven = true, nine = true; i < 64; i++) {
+        if (index === i) continue;
+        if (Math.abs(i - index) % 7 === 0 && seven) {
+          if (Math.abs(i - index) % 7 === 0 && board[i].player === 2) {
+            seven = false;
+          } else if (
+            Math.abs(i - index) % 7 === 0 &&
+            (board[i].player === 1 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            seven = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (Math.abs(i - index) % 9 === 0 && nine) {
+          if (Math.abs(i - index) % 9 === 0 && board[i].player === 2) {
+            nine = false;
+          } else if (
+            (i - index) % 9 === 0 &&
+            (board[i].player === 1 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            nine = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
+      for (let i = index, seven = true, nine = true; i > 0; i--) {
+        if (index === i) continue;
+        if (Math.abs(i - index) % 7 === 0 && seven) {
+          if (Math.abs(i - index) % 7 === 0 && board[i].player === 2) {
+            seven = false;
+          } else if (
+            Math.abs(i - index) % 7 === 0 &&
+            (board[i].player === 1 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            seven = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+        if (Math.abs(i - index) % 9 === 0 && nine) {
+          if (Math.abs(i - index) % 9 === 0 && board[i].player === 2) {
+            nine = false;
+          } else if (
+            (i - index) % 9 === 0 &&
+            (board[i].player === 1 || i % 8 === 7 || i % 8 === 0)
+          ) {
+            resArray.push(i);
+            nine = false;
+          } else {
+            resArray.push(i);
+          }
+        }
+      }
+    }
+    console.log(clicked);
     console.log(resArray);
     return resArray;
   }
