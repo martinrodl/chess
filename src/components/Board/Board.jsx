@@ -1,6 +1,6 @@
-import React from 'react';
-import Square from '../Square/Square';
-import style from './style.module.css';
+import React from "react";
+import Square from "../Square/Square";
+import style from "./style.module.css";
 
 function Board({ board, onSquareClick }) {
   return (

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Board from '../Board/Board.js';
-import GameLogic from '../../chess-logic/Game';
+import React, { useState, useEffect } from "react";
+import Board from "../Board/Board.jsx";
+import GameLogic from "../../chess-logic/Game";
 
 const game = new GameLogic();
 
