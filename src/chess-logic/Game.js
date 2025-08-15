@@ -1,56 +1,64 @@
-import initializeBoard from './initializeBoard';
-import getPossibleMoves from './getPossibleMoves';
+import { Chess } from 'chess.js';
 
 export default class Game {
   constructor() {
-    this.board = initializeBoard();
-    this.currentPlayer = 1; // 1 for white, 2 for black
-    this.moves = [];
-    this.selectedPiece = null;
-    this.possibleMoves = [];
+    this.chess = new Chess();
+    this.board = this.chess.board();
   }
 
-  handleSquareClick(index) {
-    const square = this.board[index];
-
-    if (this.selectedPiece) {
-      if (this.possibleMoves.includes(index)) {
-        this.movePiece(this.selectedPiece.index, index);
-        this.clearPossibleMoves();
-        this.selectedPiece = null;
-        this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
-      } else {
-        this.selectedPiece = null;
-        this.clearPossibleMoves();
+  get board() {
+    return this.chess.board().flat().map((p, i) => {
+      if (p) {
+        return {
+          ...p,
+          index: i,
+          player: p.color === 'w' ? 1 : 2,
+          piece: p.type,
+        };
       }
-    }
-
-    if (square.piece && square.player === this.currentPlayer) {
-      this.selectedPiece = { ...square.piece, index };
-      this.possibleMoves = getPossibleMoves(square, index, this.board);
-      this.highlightPossibleMoves();
-    }
-  }
-
-  movePiece(from, to) {
-    const fromSquare = this.board[from];
-    this.board[to] = { ...fromSquare, index: to };
-    this.board[from] = {
-      index: from,
-      piece: null,
-      player: null,
-    };
-  }
-
-  highlightPossibleMoves() {
-    this.board.forEach((square) => (square.possibleToMove = false));
-    this.possibleMoves.forEach((index) => {
-      this.board[index].possibleToMove = true;
+      return {
+        index: i,
+        piece: null,
+        player: null,
+      };
     });
   }
 
-  clearPossibleMoves() {
-    this.board.forEach((square) => (square.possibleToMove = false));
-    this.possibleMoves = [];
+  handleSquareClick(index) {
+    const square = this.chess.get(this.indexToAlgebraic(index));
+
+    if (this.selectedPiece) {
+      const move = this.chess.move({
+        from: this.selectedPiece.square,
+        to: this.indexToAlgebraic(index),
+        promotion: 'q', // always promote to a queen for simplicity
+      });
+      if (move) {
+        this.selectedPiece = null;
+      } else {
+        // if the move is invalid, deselect the piece
+        this.selectedPiece = null;
+      }
+    } else if (square && square.color === this.chess.turn()) {
+      this.selectedPiece = square;
+    }
+  }
+
+  move(move) {
+    return this.chess.move(move);
+  }
+
+  undo() {
+    return this.chess.undo();
+  }
+
+  reset() {
+    this.chess.reset();
+  }
+
+  indexToAlgebraic(index) {
+    const file = String.fromCharCode(97 + (index % 8));
+    const rank = 8 - Math.floor(index / 8);
+    return `${file}${rank}`;
   }
 }
