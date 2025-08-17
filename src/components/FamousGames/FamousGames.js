@@ -2,7 +2,7 @@ import React from 'react';
 import { famousGames } from '../../famous-games';
 import styles from './FamousGames.module.css';
 
-export default function FamousGames({ onSelectGame }) {
+export default function FamousGames({ onSelectGame, onPlayAsFischer }) {
   return (
     <div className={styles.container}>
       <h2>Famous Games</h2>
@@ -15,6 +15,7 @@ export default function FamousGames({ onSelectGame }) {
           </li>
         ))}
       </ul>
+      <button onClick={onPlayAsFischer}>Play as Fischer vs. Byrne</button>
     </div>
   );
 }

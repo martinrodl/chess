@@ -3,7 +3,6 @@ import { Chess } from 'chess.js';
 export default class Game {
   constructor() {
     this.chess = new Chess();
-    this.board = this.chess.board();
   }
 
   get board() {
@@ -25,12 +24,13 @@ export default class Game {
   }
 
   handleSquareClick(index) {
-    const square = this.chess.get(this.indexToAlgebraic(index));
+    const algebraic = this.indexToAlgebraic(index);
+    const square = this.chess.get(algebraic);
 
     if (this.selectedPiece) {
       const move = this.chess.move({
-        from: this.selectedPiece.square,
-        to: this.indexToAlgebraic(index),
+        from: this.selectedPiece,
+        to: algebraic,
         promotion: 'q', // always promote to a queen for simplicity
       });
       if (move) {
@@ -40,9 +40,10 @@ export default class Game {
         this.selectedPiece = null;
       }
     } else if (square && square.color === this.chess.turn()) {
-      this.selectedPiece = square;
+      this.selectedPiece = algebraic;
     }
   }
+
 
   move(move) {
     return this.chess.move(move);
@@ -60,5 +61,9 @@ export default class Game {
     const file = String.fromCharCode(97 + (index % 8));
     const rank = 8 - Math.floor(index / 8);
     return `${file}${rank}`;
+  }
+
+  getTurn() {
+    return this.chess.turn();
   }
 }
